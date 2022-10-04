@@ -23,7 +23,7 @@ $ pip install pika
 ### Запуск скрипта  producer.py ###
 > листинг скрипта: https://github.com/greeksergius/homework/commit/448a9af10ae56504db7aac593ead3714cdd10d73
 
-**Как мы видим продюсер сообщений до его установки отправил в брокер 2 944 291 сообщений**
+**Как мы видим продюсер сообщений до его остановки отправил в брокер 2 944 291 сообщений**
 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_19-15-57.png)
 ### Запуск скрипта  consumer.py ###

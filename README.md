@@ -26,6 +26,10 @@ $ pip install pika
 
 Также приложите вывод команды с двух нод:
 $ rabbitmqctl cluster_status
+Скриншот первой головной ноды
+![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_19-26-56.png)
+Скриншот второй ноды
+![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_19-29-24.png)
 
 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_18-46-58.png)

@@ -1,5 +1,5 @@
 # Домашнее задание к занятию 11.4 "Очереди RabbitMQ" 
-# Григорьев Сергей
+# Выполнил: Григорьев Сергей
 
 # Задание 1. Установка RabbitMQ
 ***
@@ -55,7 +55,10 @@ $ rabbitmqadmin get queue='hello'
 После чего попробуйте отключить одну из нод, желательно, ту к которой подключались из скрипта, затем поправьте параметры подключения в скрипте consumer.py на вторую ноду и запустите его.
 
 Приложите скриншот результата работы второго скрипта.
+**Ответ при выполнение в терминале rabbitmqadmin get queue='hello' на первой головной ноде**
 ![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_19-33-47.png)
+**Ответ при выполнение в терминале rabbitmqadmin get queue='hello' на второй ноде**
 ![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_19-34-40.png)
+**Ответ при выполнение в терминале rabbitmqadmin get queue='hello' на второй ноде при остановке на первой (головной) ноде rabbitmq app_stop, и запуск скрипта consumer.py на вторую ноду**
 ![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_19-36-59.png)
 

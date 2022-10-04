@@ -16,6 +16,8 @@ $ pip install pika
 Для закрепления материала можете попробовать модифицировать скрипты, чтобы поменять название очереди и отправляемое сообщение.
 
 Запуск скрипта  producer.py
+листинг скрипта: https://github.com/greeksergius/homework/commit/488dcc619cc1e262907ea449b3172f1e0e8f3ea6
+
 ![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_19-15-57.png)
 Запуск скрипта  consumer.py 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_19-17-35.png)

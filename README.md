@@ -22,6 +22,7 @@ $ pip install pika
 
 Задание 3. Подготовка HA кластера
 Используя Vagrant или VirtualBox, создайте вторую виртуальную машину и установите RabbitMQ. Добавьте в файл hosts название и ip адрес каждой машины, чтобы машины могли видеть друг друга по имени.
+![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_19-22-24.png)
 
 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_18-46-58.png)

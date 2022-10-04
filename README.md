@@ -1,2 +1,2 @@
 # homework
-![Alt text](https://github.com/weiman152/StarsView/blob/master/ScreenShots/1.png)
+![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_18-46-58.png)

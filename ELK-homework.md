@@ -13,7 +13,8 @@ ____
 
 > Приведите скриншот команды 'curl -X GET 'localhost:9200/_cluster/health?pretty', сделанной на сервере с установленным elasticsearch. Где будет виден нестандартный cluster_name
 
-**В дефолтном конфиге elasticsearch.yml изменены следующие параметры:
+![Alt text](https://github.com/greeksergius/homework/blob/main/ELK/2022-09-29_13-01-31.png)
+**В дефолтном конфиге elasticsearch.yml изменены следующие параметры:**
 
 cluster.name: E-grigsergey
  
@@ -27,7 +28,7 @@ cluster.name: E-grigsergey
  
  discovery.seed_hosts: ["127.0.0.1", "[::1]"]
 
-![Alt text](https://github.com/greeksergius/homework/blob/main/ELK/2022-09-29_13-01-31.png)
+[elasticsearch.yml](https://github.com/greeksergius/homework/blob/main/ELK/elasticsearch.yml)
 
 ## Задание 2. Kibana.
 
@@ -35,7 +36,10 @@ cluster.name: E-grigsergey
 
 > Приведите скриншот интерфейса kibana на странице http://<ip вашего сервера>:5601/app/dev_tools#/console, где будет выполнен запрос GET /_cluster/health?pretty
 
-**В дефолтном конфиге kibana.yml изменен только следующий параметр:
+![Alt text](https://github.com/greeksergius/homework/blob/main/ELK/2022-09-29_13-45-50.png)
+
+
+**В дефолтном конфиге kibana.yml изменен только следующий параметр:**
 
 server.port: 5601
 
@@ -43,9 +47,8 @@ server.host: "0.0.0.0"
 
 elasticsearch.hosts: ["http://localhost:9200"]
 
+[kibana.yml](https://github.com/greeksergius/homework/blob/main/ELK/kibana.yml)
 
-
-![Alt text](https://github.com/greeksergius/homework/blob/main/ELK/2022-09-29_13-45-50.png)
 
 ## Задание 3. Logstash.
 
@@ -54,6 +57,7 @@ elasticsearch.hosts: ["http://localhost:9200"]
 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/ELK/2022-10-01_10-27-34.png)
 
+[logstash.yml](https://github.com/greeksergius/homework/blob/main/ELK/logstash.yml)
 
 ## Задание 4. Filebeat.
 
@@ -63,6 +67,12 @@ elasticsearch.hosts: ["http://localhost:9200"]
 
 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/ELK/2022-10-05_13-39-01.png)
+
+[filebeat.yml](https://github.com/greeksergius/homework/blob/main/ELK/filebeat.yml)
+
+Настройки в активированном модуле filebeat NGINX
+
+[nginx.yml](https://github.com/greeksergius/homework/blob/main/ELK/nginx.yml)
 
 ------
 Дополнительные задания (со звездочкой*). Эти задания дополнительные (не обязательные к выполнению) и никак не повлияют на получение вами зачета по этому домашнему заданию. Вы можете их выполнить, если хотите глубже и/или шире разобраться в материале.

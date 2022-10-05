@@ -64,4 +64,5 @@ $ rabbitmqadmin get queue='hello'
 
 **Ответ при выполнении в терминале rabbitmqadmin get queue='hello' на второй ноде при остановке на первой (головной) ноде rabbitmq app_stop, и запуск скрипта consumer.py на вторую ноду**
 ![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_19-36-59.png)
+rabbitmqctl set_policy HA ".*" "{""ha-mode"": ""all""}"
 

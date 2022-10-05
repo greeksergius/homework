@@ -70,3 +70,5 @@ $ rabbitmqadmin get queue='hello'
 ![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_19-36-59.png)
 rabbitmqctl set_policy HA ".*" "{""ha-mode"": ""all""}"
 
+https://www.rabbitmq.com/ha.html#unsynchronised-mirrors
+

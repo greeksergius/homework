@@ -13,15 +13,22 @@ ____
 
 Приведите скриншот команды 'curl -X GET 'localhost:9200/_cluster/health?pretty', сделанной на сервере с установленным elasticsearch. Где будет виден нестандартный cluster_name
 
+![Alt text](https://github.com/greeksergius/homework/blob/main/ELK/2022-09-29_13-01-31.png)
+
 ## Задание 2. Kibana.
 
 > Установите и запустите kibana.
 Приведите скриншот интерфейса kibana на странице http://<ip вашего сервера>:5601/app/dev_tools#/console, где будет выполнен запрос GET /_cluster/health?pretty
 
+![Alt text](https://github.com/greeksergius/homework/blob/main/ELK/2022-09-29_13-45-50.png)
+
 ## Задание 3. Logstash.
 
 > Установить и запустить Logstash и Nginx. С помощью Logstash отправить access-лог nginx в Elasticsearch.
 Приведите скриншот интерфейса kibana, на котором видны логи nginx.
+
+![Alt text](https://github.com/greeksergius/homework/blob/main/ELK/2022-10-01_10-27-34.png)
+
 
 ## Задание 4. Filebeat.
 
@@ -30,7 +37,7 @@ ____
 Приведите скриншот интерфейса kibana, на котором видны логи nginx, которые были отправлены через Filebeat.
 Дополнительные задания (со звездочкой*)
 
-
+![Alt text]()
 
 ------
 Эти задания дополнительные (не обязательные к выполнению) и никак не повлияют на получение вами зачета по этому домашнему заданию. Вы можете их выполнить, если хотите глубже и/или шире разобраться в материале.

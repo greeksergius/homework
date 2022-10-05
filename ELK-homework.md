@@ -11,21 +11,46 @@ ____
 
 > Установите и запустите elasticsearch, после чего поменяйте параметр cluster_name на случайный.
 
-Приведите скриншот команды 'curl -X GET 'localhost:9200/_cluster/health?pretty', сделанной на сервере с установленным elasticsearch. Где будет виден нестандартный cluster_name
+> Приведите скриншот команды 'curl -X GET 'localhost:9200/_cluster/health?pretty', сделанной на сервере с установленным elasticsearch. Где будет виден нестандартный cluster_name
+
+**В дефолтном конфиге elasticsearch.yml изменены следующие параметры:
+
+cluster.name: E-grigsergey
+ 
+ #node.name: node-1
+ 
+ #node.roles: [ master,data ]
+ 
+ #http.port: 9200
+
+ network.host: 0.0.0.0
+ 
+ discovery.seed_hosts: ["127.0.0.1", "[::1]"]
 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/ELK/2022-09-29_13-01-31.png)
 
 ## Задание 2. Kibana.
 
 > Установите и запустите kibana.
-Приведите скриншот интерфейса kibana на странице http://<ip вашего сервера>:5601/app/dev_tools#/console, где будет выполнен запрос GET /_cluster/health?pretty
+
+> Приведите скриншот интерфейса kibana на странице http://<ip вашего сервера>:5601/app/dev_tools#/console, где будет выполнен запрос GET /_cluster/health?pretty
+
+**В дефолтном конфиге kibana.yml изменен только следующий параметр:
+
+server.port: 5601
+
+server.host: "0.0.0.0"
+
+elasticsearch.hosts: ["http://localhost:9200"]
+
+
 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/ELK/2022-09-29_13-45-50.png)
 
 ## Задание 3. Logstash.
 
 > Установить и запустить Logstash и Nginx. С помощью Logstash отправить access-лог nginx в Elasticsearch.
-Приведите скриншот интерфейса kibana, на котором видны логи nginx.
+> Приведите скриншот интерфейса kibana, на котором видны логи nginx.
 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/ELK/2022-10-01_10-27-34.png)
 
@@ -34,7 +59,7 @@ ____
 
 > Установить и запустить Filebeat. Переключить поставку логов Nginx с Logstash на Filebeat.
 
-Приведите скриншот интерфейса kibana, на котором видны логи nginx, которые были отправлены через Filebeat.
+> Приведите скриншот интерфейса kibana, на котором видны логи nginx, которые были отправлены через Filebeat.
 Дополнительные задания (со звездочкой*)
 
 ![Alt text]()

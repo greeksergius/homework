@@ -43,9 +43,9 @@ $ pip install pika
 
 $ rabbitmqctl cluster_status
 
-### Скриншот первой головной ноды кластера###
+### Скриншот первой головной ноды кластера
 ![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_19-26-56.png)
-### Скриншот второй ноды кластера###
+### Скриншот второй ноды кластера
 ![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_19-29-24.png)
 
 Для закрепления материала снова запустите скрипт producer.py и приложите скриншот выполнения команды на каждой из нод:

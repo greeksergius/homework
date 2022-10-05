@@ -26,6 +26,7 @@ $ pip install pika
 **Как мы видим продюсер сообщений до его остановки отправил в брокер 2 944 291 сообщений**
 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_19-15-57.png)
+
 ### Запуск скрипта  consumer.py ###
 > листинг скрипта: https://github.com/greeksergius/homework/commit/488dcc619cc1e262907ea449b3172f1e0e8f3ea6
 
@@ -57,12 +58,15 @@ $ rabbitmqadmin get queue='hello'
 Приложите скриншот результата работы второго скрипта.
 
 **Ответ при выполнении в терминале rabbitmqadmin get queue='hello' на первой головной ноде**
+
 ![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_19-33-47.png)
 
 **Ответ при выполнении в терминале rabbitmqadmin get queue='hello' на второй ноде**
+
 ![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_19-34-40.png)
 
 **Ответ при выполнении в терминале rabbitmqadmin get queue='hello' на второй ноде при остановке на первой (головной) ноде rabbitmq app_stop, и запуск скрипта consumer.py на вторую ноду**
+
 ![Alt text](https://github.com/greeksergius/homework/blob/main/2022-10-04_19-36-59.png)
 rabbitmqctl set_policy HA ".*" "{""ha-mode"": ""all""}"
 

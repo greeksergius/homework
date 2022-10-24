@@ -23,7 +23,9 @@ FROM   information_schema.tables  where table_schema = 'j12149682_sakila';
 ![Alt text](https://github.com/greeksergius/homework/blob/main/12-5%20sql%20index/2022-10-23_12-13-17.png)
 
 ```
-# Показываем общее по дате и индексам таблиц
+
+> ЗАПРОС:
+# Показываем общее по дате и индексам таблиц (для себя)
 SELECT
    #  table_schema as `Database`,
      table_name AS `Table`,

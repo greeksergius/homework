@@ -213,7 +213,7 @@ mysql> SELECT * FROM city ORDER BY ID DESC LIMIT 1;
 
 *Приложите скриншоты конфигурации, выполнения работы (состояния и режимы работы серверов).*
 
-
+``` 
 
 docker run -d --name replication-master-one -e MYSQL_ALLOW_EMPTY_PASSWORD=true -v ~/path/to/world/dump:/docker-entrypoint-initdb.d ubuntu/mysql
 docker run -d --name replication-master-two -e MYSQL_ALLOW_EMPTY_PASSWORD=true -v ~/path/to/world/dump:/docker-entrypoint-initdb.d ubuntu/mysql
@@ -256,7 +256,7 @@ CREATE TABLE tk2 (col1 INT, col2 CHAR(5), col3 DATE)
     PARTITION BY LINEAR KEY(col3)
     PARTITIONS 5;
 
- 
+ ``` 
 
 
 Инструкции:

@@ -215,53 +215,75 @@ mysql> SELECT * FROM city ORDER BY ID DESC LIMIT 1;
 
 ``` 
 
+#### ОТВЕТ
+
+Создаем два контейнера мастера  one и two
+``` 
 docker run -d --name replication-master-one -e MYSQL_ALLOW_EMPTY_PASSWORD=true -v ~/path/to/world/dump:/docker-entrypoint-initdb.d ubuntu/mysql
 docker run -d --name replication-master-two -e MYSQL_ALLOW_EMPTY_PASSWORD=true -v ~/path/to/world/dump:/docker-entrypoint-initdb.d ubuntu/mysql
-
+``` 
+Прописываем в конфигах mysql id сервера (каждый на своем)
+``` 
 docker exec -it replication-master-one bash
 nano /etc/mysql/my.cnf
-> server_id = 1
-log_bin = mysql-bin #на первом
 
+server_id = 1
+log_bin = mysql-bin #на первом
+``` 
+``` 
 docker exec -it replication-master-two bash
 nano /etc/mysql/my.cnf
 server_id = 2
 log_bin = mysql-bin #на втором
-
+``` 
+Создаем для них сеть и мост
+``` 
 docker network create replication 3
 docker network connect replication3 replication-master-one
 docker network connect replication3 replication-master-two
-
+``` 
+Перезагружаем добро, после внесения конфигов
+``` 
 docker restart replication-master-one
 docker restart replication-master-two
+``` 
 
 Важно добавить пользователей на обоих серверах в mysql:
+Пользователь: replication5
+Пароль: Repli11Pass!!!
+``` 
 CREATE USER 'replication5'@'%' IDENTIFIED WITH mysql_native_password BY 'Repli11Pass!!!';
 GRANT REPLICATION SLAVE ON *.* TO 'replication5'@'%';
 ALTER USER 'replication5'@'%' IDENTIFIED WITH mysql_native_password BY 'Repli11Pass!!!';
+``` 
 
-На первом
+На первом мастере указываем мастером второго
+``` 
 SLAVE STOP;
-CHANGE MASTER TO MASTER_HOST = 'replication-master-two', MASTER_USER = 'replication', MASTER_PASSWORD = 'password', MASTER_LOG_FILE = 'mysql-bin.000005', MASTER_LOG_POS = 157;
+CHANGE MASTER TO MASTER_HOST = 'replication-master-two', MASTER_USER = 'replication5', MASTER_PASSWORD = 'Repli11Pass!!!', MASTER_LOG_FILE = 'mysql-bin.000009', MASTER_LOG_POS = 505;
 SLAVE START;
-На втором
+``` 
+На втором мастере указываем мастера первого
+``` 
 SLAVE STOP;
-CHANGE MASTER TO MASTER_HOST = 'replication-master-one', MASTER_USER = 'replication', MASTER_PASSWORD = 'password', MASTER_LOG_FILE = 'mysql-bin.000005', MASTER_LOG_POS = 157;
+CHANGE MASTER TO MASTER_HOST = 'replication-master-one', MASTER_USER = 'replication5', MASTER_PASSWORD = 'Repli11Pass!!!', MASTER_LOG_FILE = 'mysql-bin.000009', MASTER_LOG_POS = 505;
 SLAVE START;
-
- 
- 
+``` 
+Заходим в терминал первого мастера, заходим в mysql
+``` 
 create database example;
- 
-
-
+``` 
 Создаем таблицу в бд example
-
+``` 
 CREATE TABLE tk2 (col1 INT, col2 CHAR(5), col3 DATE)
     PARTITION BY LINEAR KEY(col3)
     PARTITIONS 5;
-
  ``` 
+Проверяем репликацию на втором и изменения в БД 
+``` 
+mysql> SHOW SLAVE STATUS\G
+``` 
+![Alt text](https://github.com/greeksergius/homework/blob/main/12-6-sql-rep1/2022-10-25_17-13-27.png) 
 
 
 Инструкции:

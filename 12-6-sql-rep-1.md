@@ -236,13 +236,13 @@ docker restart replication-master-one
 docker restart replication-master-two
 
 На первом
-SLOW STOP;
+SLAVE STOP;
 CHANGE MASTER TO MASTER_HOST = 'replication-master-two', MASTER_USER = 'replicator', MASTER_PASSWORD = 'password', MASTER_LOG_FILE = 'mysql-bin.000002', MASTER_LOG_POS = 157;
-SLOW START;
+SLAVE START;
 На втором
-SLOW STOP;
+SLAVE STOP;
 CHANGE MASTER TO MASTER_HOST = 'replication-master-one', MASTER_USER = 'replicator', MASTER_PASSWORD = 'password', MASTER_LOG_FILE = 'mysql-bin.000002', MASTER_LOG_POS = 157;
-SLOW START;
+SLAVE START;
 
 Важно добавить пользователей на обоих серверах в mysql:
 create user 'replicator'@'%' identified by 'password';

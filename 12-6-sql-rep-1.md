@@ -176,7 +176,7 @@ mysql> SHOW SLAVE STATUS\G
 ``` 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/12-6-sql-rep1/2022-10-25_12-19-35.png) 
 # Тестирование режима работы 
-``` 
+
 Меняем данные на Server-Master:
 ``` 
 docker exec -it replication-master-ubuntu mysql

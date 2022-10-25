@@ -53,6 +53,107 @@ docker network connect replication replication-slave-ubuntu
 docker exec replication-slave-ubuntu apt-get update && docker exec replication-slave-ubuntu apt-get install -y nano
 docker exec replication-slave-ubuntu apt-get update && docker exec replication-slave-ubuntu apt-get install -y nano
 ```
+Создадим учетную запись Master для сервера репликации:
+```
+docker exec -it replication-master-ubuntu mysql
+```
+В контейнере мастера создадим пользователя replication с правами  репликации на все базы:
+```
+mysql> CREATE USER 'replication'@'%';
+mysql> GRANT REPLICATION SLAVE ON *.* TO 'replication'@'%';
+mysql> FLUSH PRIVILEGES;
+```
+Изменим конфигурацию мастер сервера:
+```
+docker exec -it replication-master-ubuntu bash
+nano /etc/mysql/my.cnf
+```
+Далее добавим настройки в конфиг после секции [mysqld] 
+```
+server_id = 1
+log_bin = mysql-bin
+```
+![Alt text](https://github.com/greeksergius/homework/blob/main/12-6-sql-rep1/2022-10-25_13-02-42.png)
+
+При изменении конфигурации сервера требуется перезагрузка:
+```
+docker restart replication-master-ubuntu
+```
+После требуется зайти в контейнер и проверить состояние:
+```
+docker exec -it replication-master-ubuntu mysql
+mysql> SHOW MASTER STATUS;
+```
+Так как сборка у нас без тестовой БД World, то скачиваем ее и экспортируем в БД мастера репликации. Заходим в терминал контейнера и выполняем: 
+```
+apt-install wget 
+wget https://downloads.mysql.com/docs/world-db.tar.gz
+tar -xvf world-db.tar.gz
+```
+Заходим в mysql и создаем базу данных world
+```
+docker exec -it replication-master-ubuntu mysql
+mysql>  CREATE DATABASE `world`;
+```
+Экспортируем дамп в  бд world
+```
+mysql world < путьгде файл/world.sql
+```
+Смотрим мастер статус
+```
+mysql> SHOW MASTER STATUS;
+```
+![Alt text](https://github.com/greeksergius/homework/blob/main/12-6-sql-rep1/2022-10-25_13-16-19.png)
+
+Следующим шагом требуется выполнить слепок системы и заблокировать все изменения на мастер сервере:
+```
+mysql> FLUSH TABLES WITH READ LOCK;
+```
+После данных манипуляций выхода из контейнера и выполняем процесс mysqldump для экспорта базы данных, например:
+```
+docker exec replication-master-ubuntu mysqldump world > /путьна вашем рабочем терминале /world.sql
+```
+После, заходим обратно в контейнер и выводим настройки master сервера (они понадобятся при настройке slave сервера):
+``` 
+docker exec -it replication-master-ubuntu mysql
+mysql> SHOW MASTER STATUS;
+```
+Запоминаем значения File и Position
+
+mysql-bin.000001
+
+735563
+![Alt text](https://github.com/greeksergius/homework/blob/main/12-6-sql-rep1/2022-10-25_13-16-19.png)
+
+Снимаем блокировку базы данных мастера репликации:
+``` 
+mysql> UNLOCK TABLES;
+``` 
+Master готов, переходим к slave. Копируем дамп бд с нашей главной машины в докер контейнер слейва:
+``` 
+docker cp /путьгдесохранилинанашеймашине/world.sql replication-slave-ubuntu:/tmp/world.sql
+``` 
+Переходим в mysql слейва. Создаем БД  world. Экспортируем скопированный дамп с нашей машины в /tmp/world.sql слейва
+``` 
+docker exec -it replication-slave-ubuntu mysql
+mysql> CREATE DATABASE `world`;
+docker exec -it replication-slave-ubuntu bash
+mysql world < /tmp/world.sql
+``` 
+Далее редактируем mysql конфиг файл слейва 
+``` 
+docker exec -it replication-slave-ubuntu bash
+nano /etc/mysql/my.cnf
+``` 
+Содержание конфиг файла слейва. Вставляем после секции [mysqld] :
+``` 
+log_bin = mysql-bin
+server_id = 2
+relay-log = /var/lib/mysql/mysql-relay-bin
+relay-log-index = /var/lib/mysql/mysql-relay-bin.index
+read_only = 1
+``` 
+![Alt text](https://github.com/greeksergius/homework/blob/main/12-6-sql-rep1/2022-10-25_13-29-23.png) 
 
 
 ---

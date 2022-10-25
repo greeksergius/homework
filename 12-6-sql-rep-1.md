@@ -155,6 +155,41 @@ read_only = 1
 ``` 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/12-6-sql-rep1/2022-10-25_13-29-23.png) 
 
+Перезагружаем slave
+``` 
+docker restart replication-slave-ubuntu
+``` 
+Настройка компонентов
+
+Следующим шагом требуется прописать в базе данных на сервер slave, кто является master репликации и данные полученные в File и Position:
+``` 
+docker exec -it replication-slave-ubuntu mysql
+mysql> CHANGE MASTER TO MASTER_HOST='replication-master-ubuntu',
+MASTER_USER='replication', MASTER_LOG_FILE='mysql-bin.000001',
+MASTER_LOG_POS=735563;
+``` 
+Далее запускаем журнал ретрансляции, и проверим статус операций на слейве:
+
+``` 
+mysql> START SLAVE;
+mysql> SHOW SLAVE STATUS\G
+``` 
+![Alt text](https://github.com/greeksergius/homework/blob/main/12-6-sql-rep1/2022-10-25_12-19-35.png) 
+#Тестирование режима работы
+``` 
+Меняем данные на Server-Master:
+``` 
+docker exec -it replication-master-ubuntu mysql
+mysql> USE world;
+mysql> INSERT INTO city (Name, CountryCode, District, Population) VALUES ('Test-Replication-YAKUTIA', 'ALB', 'Test', 42);
+``` 
+Переходим на слейв и смотрим реплецировался ли запрос с мастера
+``` 
+docker exec -it replication-slave-ubuntu mysql
+mysql> USE world;
+mysql> SELECT * FROM city ORDER BY ID DESC LIMIT 1;
+``` 
+![Alt text](https://github.com/greeksergius/homework/blob/main/12-6-sql-rep1/2022-10-25_12-29-11.png) 
 
 ---
 

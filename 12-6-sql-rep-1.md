@@ -181,7 +181,7 @@ mysql> SHOW SLAVE STATUS\G
 ``` 
 docker exec -it replication-master-ubuntu mysql
 mysql> USE world;
-mysql> INSERT INTO city (Name, CountryCode, District, Population) VALUES ('Test-Replication-YAKUTIA', 'ALB', 'Test', 42);
+mysql> INSERT INTO city (Name, CountryCode, District, Population) VALUES ('Test-Replication-YAKUTIA', 'ALB', 'TOYON', 42);
 ``` 
 Переходим на слейв и смотрим реплецировался ли запрос с мастера
 ``` 

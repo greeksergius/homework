@@ -235,13 +235,17 @@ docker network connect replication3 replication-master-two
 docker restart replication-master-one
 docker restart replication-master-two
 
+Создаем пользователя 
+CREATE USER 'replication5'@'%' IDENTIFIED WITH mysql_native_password BY 'Repli11Pass!!!';
+GRANT REPLICATION SLAVE ON *.* TO 'replication5'@'%';
+
 На первом
 SLAVE STOP;
-CHANGE MASTER TO MASTER_HOST = 'replication-master-two', MASTER_USER = 'replicator', MASTER_PASSWORD = 'password', MASTER_LOG_FILE = 'mysql-bin.000002', MASTER_LOG_POS = 157;
+CHANGE MASTER TO MASTER_HOST = 'replication-master-two', MASTER_USER = 'replication', MASTER_PASSWORD = 'password', MASTER_LOG_FILE = 'mysql-bin.000005', MASTER_LOG_POS = 157;
 SLAVE START;
 На втором
 SLAVE STOP;
-CHANGE MASTER TO MASTER_HOST = 'replication-master-one', MASTER_USER = 'replicator', MASTER_PASSWORD = 'password', MASTER_LOG_FILE = 'mysql-bin.000002', MASTER_LOG_POS = 157;
+CHANGE MASTER TO MASTER_HOST = 'replication-master-one', MASTER_USER = 'replication', MASTER_PASSWORD = 'password', MASTER_LOG_FILE = 'mysql-bin.000005', MASTER_LOG_POS = 157;
 SLAVE START;
 
 Важно добавить пользователей на обоих серверах в mysql:

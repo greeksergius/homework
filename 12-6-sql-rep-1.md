@@ -269,6 +269,7 @@ SLAVE STOP;
 CHANGE MASTER TO MASTER_HOST = 'replication-master-one', MASTER_USER = 'replication5', MASTER_PASSWORD = 'Repli11Pass!!!', MASTER_LOG_FILE = 'mysql-bin.000009', MASTER_LOG_POS = 505;
 SLAVE START;
 ``` 
+
 Заходим в терминал первого мастера, заходим в mysql
 ``` 
 create database example;
@@ -278,7 +279,7 @@ create database example;
 CREATE TABLE tk2 (col1 INT, col2 CHAR(5), col3 DATE)
     PARTITION BY LINEAR KEY(col3)
     PARTITIONS 5;
- ``` 
+``` 
 Проверяем репликацию на втором и изменения в БД 
 ``` 
 mysql> SHOW SLAVE STATUS\G

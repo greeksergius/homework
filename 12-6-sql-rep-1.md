@@ -213,6 +213,53 @@ mysql> SELECT * FROM city ORDER BY ID DESC LIMIT 1;
 
 *Приложите скриншоты конфигурации, выполнения работы (состояния и режимы работы серверов).*
 
+
+
+docker run -d --name replication-master-one -e MYSQL_ALLOW_EMPTY_PASSWORD=true -v ~/path/to/world/dump:/docker-entrypoint-initdb.d ubuntu/mysql
+docker run -d --name replication-master-two -e MYSQL_ALLOW_EMPTY_PASSWORD=true -v ~/path/to/world/dump:/docker-entrypoint-initdb.d ubuntu/mysql
+
+docker exec -it replication-master-one bash
+nano /etc/mysql/my.cnf
+> server_id = 1
+log_bin = mysql-bin #на первом
+
+docker exec -it replication-master-two bash
+nano /etc/mysql/my.cnf
+server_id = 2
+log_bin = mysql-bin #на втором
+
+docker network create replication 3
+docker network connect replication3 replication-master-one
+docker network connect replication3 replication-master-two
+
+docker restart replication-master-one
+docker restart replication-master-two
+
+На первом
+SLOW STOP;
+CHANGE MASTER TO MASTER_HOST = 'replication-master-one', MASTER_USER = 'replicator', MASTER_PASSWORD = 'password', MASTER_LOG_FILE = 'mysql-bin.000002', MASTER_LOG_POS = 157;
+SLOW START;
+На втором
+SLOW STOP;
+CHANGE MASTER TO MASTER_HOST = 'replication-master-two', MASTER_USER = 'replicator', MASTER_PASSWORD = 'password', MASTER_LOG_FILE = 'mysql-bin.000002', MASTER_LOG_POS = 157;
+SLOW START;
+
+Важно добавить пользователей на обоих серверах в mysql:
+create user 'replicator'@'%' identified by 'password';
+create database example;
+grant replication slave on *.* to 'replicator'@'%';
+
+
+Создаем таблицу в бд example
+
+CREATE TABLE tk2 (col1 INT, col2 CHAR(5), col3 DATE)
+    PARTITION BY LINEAR KEY(col3)
+    PARTITIONS 5;
+
+ 
+
+
 Инструкции:
 
 https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-ru
+

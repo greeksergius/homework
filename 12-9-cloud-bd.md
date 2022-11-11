@@ -65,7 +65,7 @@ insert into test_table values('Строка 1');
 
 * Выйдите из psql командой ```\q```.
 
-## ОТВЕТ. ШАГ 6. 
+## ОТВЕТ. ШАГ 4. 
 > скриншот: 
 
 ![Alt-текст](https://github.com/greeksergius/homework/blob/main/12-9-cloud-bd/2022-11-11_19-04-12.png)
@@ -78,7 +78,7 @@ insert into test_table values('Строка 1');
 select case when pg_is_in_recovery() then 'REPLICA' else 'MASTER' end;
 ```
 
-## ОТВЕТ. ШАГ 4. 
+## ОТВЕТ. ШАГ 5. 
 > скриншот: 
 
 ![Alt-текст](https://github.com/greeksergius/homework/blob/main/12-9-cloud-bd/2022-11-11_18-41-41.png)
@@ -88,7 +88,7 @@ select case when pg_is_in_recovery() then 'REPLICA' else 'MASTER' end;
 ```
 select status from pg_stat_wal_receiver;
 ```
-## ОТВЕТ. ШАГ 5. 
+## ОТВЕТ. ШАГ 6. 
 > скриншот: 
 
 ![Alt-текст](https://github.com/greeksergius/homework/blob/main/12-9-cloud-bd/2022-11-11_18-42-34.png)
@@ -99,7 +99,7 @@ select status from pg_stat_wal_receiver;
 select * from test_table;
 ```
 
-## ОТВЕТ. ШАГ 6. 
+## ОТВЕТ. ШАГ 7. 
 > скриншот: 
 
 ![Alt-текст](https://github.com/greeksergius/homework/blob/main/12-9-cloud-bd/2022-11-11_18-43-07.png)

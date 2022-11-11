@@ -111,7 +111,7 @@ select * from test_table;
 
 
 ![Alt-текст](https://github.com/greeksergius/homework/blob/main/12-9-cloud-bd/2022-11-11_18-43-07.png)
-![Alt-текст](https://github.com/greeksergius/homework/blob/main/12-9-cloud-bd/2022-11-11_18-43-07.png)
+
 
 
 ### Задание 2*

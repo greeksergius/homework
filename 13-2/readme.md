@@ -9,7 +9,9 @@
 1. Установите **eCryptfs**.
 2. Добавьте пользователя cryptouser.
 3. Зашифруйте домашний каталог пользователя с помощью eCryptfs.
-
+------
+### ОТВЕТ:
+![Alt text](https://github.com/greeksergius/homework/blob/main/13-2/enCrypt.png) 
 
 *В качестве ответа  пришлите снимки экрана домашнего каталога пользователя с исходными и зашифрованными данными.*  
 
@@ -20,6 +22,7 @@
 3. Зашифруйте созданный раздел с помощью LUKS.
 
 *В качестве ответа пришлите снимки экрана с поэтапным выполнением задания.*
+
 ------
 ### ОТВЕТ:
 Для выполнения ДЗ использовал следующею инструкцию ([https://1cloud.ru](https://1cloud.ru/help/security/sozdanie-shifrovannogo-razdela-luks-na-linux))
@@ -235,7 +238,7 @@ mount /dev/mapper/<устройство-ВВ> /secret
 
 ```
 mount /dev/mapper/secret /secret
-
+![Alt text](https://github.com/greeksergius/homework/blob/main/13-2/luks.png) 
 ```
 
 Чтобы проверить, что диск примонтирован корректно, выполните следующую команду:
@@ -296,6 +299,8 @@ sudo echo "/dev/mapper/secret /secret auto" >> /etc/fstab
 ```
 sudo mount -a
 ```
+![Alt text](https://github.com/greeksergius/homework/blob/main/13-2/luks2.png) 
+
 
 ## Дополнительные задания (со звездочкой*)
 

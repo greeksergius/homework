@@ -54,9 +54,9 @@ sudo tail -f /var/log/suricata/fast.log
 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/13-3-SurricataFile2Ban/suricatasee.png) 
 
-Команда -sT показала работу открытых служб с портами
+Команда -sT и  -sS показала работу открытых служб с портами как потенциально нехороший траффик
 ```
-sudo nmap -sT
+sudo nmap -sT и 
 ```
 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/13-3-SurricataFile2Ban/suricatava.png) 

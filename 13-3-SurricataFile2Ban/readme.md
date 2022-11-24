@@ -50,9 +50,18 @@ Suricata не реагировала (видимо не настроены пр�
 ```
 sudo tail -f /var/log/suricata/fast.log
 ```
-Начала показывать статистику сканирования nmap`om с машины где стоит Kali
+Начала показывать статистику сканирования nmap`om с машины где стоит Kali sudo nmap -sV 192.168.0.2 посылая на нее запросы.
 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/13-3-SurricataFile2Ban/suricatasee.png) 
+
+Команда -sT показала работу открытых служб с портами
+```
+sudo nmap -sT
+```
+
+![Alt text](https://github.com/greeksergius/homework/blob/main/13-3-SurricataFile2Ban/suricatava.png) 
+
+
 
 ------
 

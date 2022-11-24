@@ -34,9 +34,14 @@
 *В качестве ответа пришлите события, которые попали в логи Suricata и Fail2Ban, прокомментируйте результат.*
 
 
-### ОТВЕТ НА ЗАДАНИЕ 1.
+  ### ОТВЕТ НА ЗАДАНИЕ 1.
 
+Подробную информации в основном выдала команда sudo nmap -sV, где указала запущенные службы и их версии.
+Suricata не реагировала (видимо не настроены правила срабатывания)
 
+![Alt text](https://github.com/greeksergius/homework/blob/main/13-3-SurricataFile2Ban/nmap1.png) 
+![Alt text](https://github.com/greeksergius/homework/blob/main/13-3-SurricataFile2Ban/Nmapservices.png) 
+![Alt text]() 
 ------
 
 ### Задание 2.
@@ -64,4 +69,15 @@
 *В качестве ответа пришлите события, которые попали в логи Suricata и Fail2Ban, прокомментируйте результат*
 
 
-### ОТВЕТ НА ЗАДАНИЕ 2.
+  ### ОТВЕТ НА ЗАДАНИЕ 2.
+Утилитой Hydra выполнили команду подбора логина и пароля к SSH
+```
+hydra -L users.txt -P pass.txt 192.168.0.2 ssh
+```
+Судя по логу на 15 раз file2ban заблокировал ip-адрес атакующей машины (192.168.0.10), после чего атакующая машина уже не смогла производить подключение по SSH
+```
+cat /var/log/fail2ban.log
+```
+
+![Alt text](https://github.com/greeksergius/homework/blob/main/13-3-SurricataFile2Ban/file2banHOST.png) 
+![Alt text](https://github.com/greeksergius/homework/blob/main/13-3-SurricataFile2Ban/file2banKali.png) 

@@ -28,6 +28,20 @@
 
 **sudo nmap -sV < ip-адрес >**
 
+Команды под капот:
+
+tail /var/log/auth.log
+
+cat /var/log/fail2ban.log
+
+sudo tail /var/log/suricata/suricata.log  
+
+sudo tail /var/log/suricata/stats.log
+
+sudo tail /var/log/suricata/fast.log
+
+sudo tail -f /var/log/suricata/fast.log
+
 (По желанию можете поэкспериментировать с опциями: https://nmap.org/man/ru/man-briefoptions.html )
 
 

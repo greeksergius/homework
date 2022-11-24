@@ -79,7 +79,7 @@ sudo nmap -sT и
 ```
 sudo hping3 -S -p 80 --flood --rand-source 192.168.0.2 -I enp0s3 -c 50
 ```
-Suricata реагировала как IDS отражая запросы  дропая
+Suricata реагировала как IDS на тест DDoS-атаки на хост,  логи алертов Suricata показала нижеследующее:
 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/13-3-SurricataFile2Ban/dosping.png) 
 

@@ -37,11 +37,15 @@
   ### ОТВЕТ НА ЗАДАНИЕ 1.
 
 Подробную информации в основном выдала команда sudo nmap -sV, где указала запущенные службы и их версии.
+```
+sudo tail -f /var/log/suricata/fast.log
+```
 Suricata не реагировала (видимо не настроены правила срабатывания)
 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/13-3-SurricataFile2Ban/nmap1.png) 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/13-3-SurricataFile2Ban/Nmapservices.png) 
-![Alt text]() 
+
+
 ------
 
 ### Задание 2.

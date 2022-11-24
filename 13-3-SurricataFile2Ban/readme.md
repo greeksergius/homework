@@ -41,10 +41,18 @@
 sudo tail -f /var/log/suricata/fast.log
 ```
 Suricata не реагировала (видимо не настроены правила срабатывания)
+После чего настроил ее по инструкции с хабра: https://habr.com/ru/company/ruvds/blog/507234/
 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/13-3-SurricataFile2Ban/nmap1.png) 
 ![Alt text](https://github.com/greeksergius/homework/blob/main/13-3-SurricataFile2Ban/Nmapservices.png) 
 
+Далее, запущенная команда
+```
+sudo tail -f /var/log/suricata/fast.log
+```
+Начала показывать статистику сканирования nmap`om с машины где стоит Kali
+
+![Alt text](https://github.com/greeksergius/homework/blob/main/13-3-SurricataFile2Ban/suricatasee.png) 
 
 ------
 

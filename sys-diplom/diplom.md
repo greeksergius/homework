@@ -83,6 +83,30 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 `5. outputs.tf` - описание выдаваемых результатов. Это внешний адрес балансировщика для просмотра веб-сайта и адрес бастиона для подключения по ssh.
 
+В корне проекта содержится директория `ansiblefiles`, где расположены роли плейбуков ansible, файлы конфигураций сервисов, файлы для загрузки (веб-сайт, дашборды), инвентарьный файл ansible, который создается terraform`ом после раскатки инфраструктуры в облако. 
+
+В директории `ansiblefiles` расположены следующие плейбуки с ролями:
+
+`1_nginx` - (без роли) для установки вебс-сервера nginx, копирования файла конфигурации и копирования файлов веб-сайта на сервер.
+
+`2_prometheus` - за основу взята роль от cloudalchemy ([cloudalchemy.prometheus](https://github.com/cloudalchemy/ansible-prometheus))
+
+`3_nginxlog-exporter` - за основу взята роль от mbaran0v ([mbaran0v.prometheus-nginxlog-exporter](https://github.com/mbaran0v/ansible-role-prometheus-nginxlog-exporter))
+
+`4_node-exporter` - за основу взята роль от cloudalchemy ([cloudalchemy.node_exporter](https://github.com/greeksergius/ansible-node-exporter))
+
+`5_elastic` - за основу взята роль от geerlingguy ([geerlingguy.elasticsearch](https://github.com/geerlingguy/ansible-role-elasticsearch))
+
+`6_filebeat` - за основу взята роль от geerlingguy ([geerlingguy.filebeat](https://github.com/geerlingguy/ansible-role-filebeat))
+
+`7_kibana` - за основу взята роль от geerlingguy ([geerlingguy.kibana](https://github.com/geerlingguy/ansible-role-kibana))
+
+`6_filebeat` - за основу взята роль от geerlingguy ([geerlingguy.filebeat](https://github.com/geerlingguy/ansible-role-filebeat))
+
+`8_grafana` - за основу взята роль от cloudalchemy ([cloudalchemy.grafana](https://github.com/cloudalchemy/ansible-grafana)) и  
+([39-PE-monitoring-dashboard](https://gitlab.com/xavki/devopsland/-/tree/master/ansible/39-PE-monitoring-dashboard/ansible_dir)) 
+
+
 ### Сайт
 Создайте две ВМ в разных зонах, установите на них сервер nginx, если его там нет. ОС и содержимое ВМ должно быть идентичным, это будут наши web-сервера.
 

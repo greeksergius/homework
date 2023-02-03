@@ -144,11 +144,26 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 ## Мониторинг
 Создайте ВМ, разверните на ней Prometheus. На каждую ВМ из web серверов установите Node Exporter и [Nginx Log Exporter](https://github.com/martin-helmich/prometheus-nginxlog-exporter). Настройте Prometheus на сбор метрик с этих exporter.
 
-Создайте ВМ, установите туда Grafana. Настройте ее на взаимодейтсвие с ранее развернутым Prometheus. Настройте дешборды с отображением метрик, минимальный набор - Utilization, Saturation, Errors для CPU, RAM, диски, сеть, http_response_count_total, http_response_size_bytes. Добавьте необходимые [tresholds](https://grafana.com/docs/grafana/latest/panels/thresholds/) на соответствующие графики.
+Создайте ВМ, установите туда Grafana. Настройте ее на взаимодейтсвие с ранее развернутым Prometheus. Настройте дешборды с отображением метрик, минимальный набор - Utilization, Saturation, Errors для CPU, RAM, диски, сеть, http_response_count_total, http_response_size_bytes. Добавьте необходимые [tresholds] на соответствующие графики.
+(https://grafana.com/docs/grafana/latest/panels/thresholds/) 
+
+### За основу были взяты дашборды:
+
+(NGINX exporter](https://grafana.com/grafana/dashboards/12708-nginx/))
+
+и
+
+(Node Exporter Full](https://grafana.com/grafana/dashboards/1860-node-exporter-full/)) 
+
+Добавлены Utilization? Saturation для CPU.
+
+Настраиваем дашборды и пороговые значения для них. 
 
 ![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/nodeexporterfull.png)
 
 ![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/grafana%20response.png)
+
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/nodeexporter3days.png)
 
 ![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/node%20exporter%20one.png)
 

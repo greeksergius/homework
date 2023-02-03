@@ -149,7 +149,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ### За основу были взяты дашборды:
 
-### [NGINX exporter](https://grafana.com/grafana/dashboards/12708-nginx/)
+### [NGINX Log Metrics](https://grafana.com/grafana/dashboards/6482-nginx-log-metrics/)
 
 ### и
 

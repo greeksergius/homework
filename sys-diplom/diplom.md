@@ -128,6 +128,8 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 Создайте [HTTP router](https://cloud.yandex.com/docs/application-load-balancer/concepts/http-router). Путь укажите - /, backend group - созданную ранее.
 
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/httrouter.png)
+
 ![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/myyavpc.png)
 
 Создайте [Application load balancer](https://cloud.yandex.com/en/docs/application-load-balancer/) для распределения трафика на web-сервера, созданные ранее. Укажите HTTP router созданный ранее, задайте listener тип auto, порт 80.

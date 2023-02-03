@@ -149,28 +149,35 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ### За основу были взяты дашборды:
 
-(NGINX exporter](https://grafana.com/grafana/dashboards/12708-nginx/))
+### (NGINX exporter](https://grafana.com/grafana/dashboards/12708-nginx/))
 
-и
+### и
 
-(Node Exporter Full](https://grafana.com/grafana/dashboards/1860-node-exporter-full/)) 
+### (Node Exporter Full](https://grafana.com/grafana/dashboards/1860-node-exporter-full/)) 
 
-Добавлены Utilization? Saturation для CPU.
+### Добавлены Utilization, Saturation для CPU.
 
-Настраиваем дашборды и пороговые значения для них. 
+### Настраиваем дашборды и пороговые значения для них. 
 
 ![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/nodeexporterfull.png)
 
 ![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/grafana%20response.png)
 
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/Nginx%20log%20exporter.png)
+
 ![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/nodeexporter3days.png)
 
 ![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/node%20exporter%20one.png)
 
-Редактируем JSON файл (заменял uid datasource, т.к. после повторного разворачивания ВМ ид прометея был другой и нужно было поправлять графики), для последующего импорта с помощью плейбука ansible
+### Видим загруженные плейбуком дашборды
+
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/grafanadashexport.png)
+
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/grafana%20dashdir.png)
+
+
+### Редактируем JSON файл (заменял uid datasource, т.к. после повторного разворачивания ВМ ид прометея был другой и нужно было поправлять графики), для последующего импорта с помощью плейбука ansible
 ![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/editjson.png)
-
-
 
 ## Логи
 Cоздайте ВМ, разверните на ней Elasticsearch. Установите filebeat в ВМ к web-серверам, настройте на отправку access.log, error.log nginx в Elasticsearch.

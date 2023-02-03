@@ -155,6 +155,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 Настройте [Security Groups](https://cloud.yandex.com/docs/vpc/concepts/security-groups) соответствующих сервисов на входящий трафик только к нужным портам.
 
 Пример настройки портов у приложения Kibana:
+
 ![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/secpublic.png)
 
 Настройте ВМ с публичным адресом, в которой будет открыт только один порт - ssh. Настройте все security groups на разрешение входящего ssh из этой security group. Эта вм будет реализовывать концепцию bastion host. Потом можно будет подключаться по ssh ко всем хостам через этот хост.

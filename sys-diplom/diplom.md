@@ -149,6 +149,11 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 Cоздайте ВМ, разверните на ней Elasticsearch. Установите filebeat в ВМ к web-серверам, настройте на отправку access.log, error.log nginx в Elasticsearch.
 
 Создайте ВМ, разверните на ней Kibana, сконфигурируйте соединение с Elasticsearch.
+
+На скриншоте Kibana видим, что filebeat видит логи nginx  на веб-серверах и отправляет их в Elasticsearch
+
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/ELK%20filebeat.png)
+
 ### Сеть
 Разверните один VPC. Сервера web, Prometheus, Elasticsearch поместите в приватные подсети. Сервера Grafana, Kibana, application load balancer определите в публичную подсеть.
 

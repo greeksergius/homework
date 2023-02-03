@@ -167,3 +167,14 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ### Резервное копирование
 Создайте snapshot дисков всех ВМ. Ограничьте время жизни snaphot в неделю. Сами snaphot настройте на ежедневное копирование.
+
+Настройки создания снэпшотов дисков задаются в манифесте  `main.tf` (в самом конце). В настройки переменных передаем индентификатары дисков инстансов полученные после публикации инфраструктуры в облаке.
+
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/snapshotbackups.png)
+
+
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/snapshotbackupslist.png)
+
+1 диска ВМ здесь нет, т.к. я тестировал nginx и балансировщик и id диска уже у одной машины изменился.
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/snapshotcomplite.png)
+

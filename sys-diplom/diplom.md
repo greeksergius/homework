@@ -69,7 +69,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 ## Инфраструктура
 Для развертки инфраструктуры используйте Terraform и Ansible. 
 
-## Ссылка на проект с terraform манифестами и ролями ansible в формате zip - [скачать](https://cloud.yandex.com/docs/application-load-balancer/concepts/target-group)
+## Ссылка на проект с terraform манифестами и ролями ansible в формате zip - [скачать](http://81.177.165.178/clouddiplom.zip)
 
 Для удобства работы и интерпритации информации, план инфраструктуры поделен на 5 манифестов terraform:
 

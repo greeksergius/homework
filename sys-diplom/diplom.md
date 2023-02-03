@@ -124,7 +124,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 Создайте [HTTP router](https://cloud.yandex.com/docs/application-load-balancer/concepts/http-router). Путь укажите - /, backend group - созданную ранее.
 
-
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/myyavpc.png)
 
 Создайте [Application load balancer](https://cloud.yandex.com/en/docs/application-load-balancer/) для распределения трафика на web-сервера, созданные ранее. Укажите HTTP router созданный ранее, задайте listener тип auto, порт 80.
 ![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/loadbalancer.png)
@@ -145,8 +145,17 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 ### Сеть
 Разверните один VPC. Сервера web, Prometheus, Elasticsearch поместите в приватные подсети. Сервера Grafana, Kibana, application load balancer определите в публичную подсеть.
 
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/myyavpc.png)
+
 Настройте [Security Groups](https://cloud.yandex.com/docs/vpc/concepts/security-groups) соответствующих сервисов на входящий трафик только к нужным портам.
 
+Пример настройки портов у приложения Kibana:
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/secpublic.png)
+
 Настройте ВМ с публичным адресом, в которой будет открыт только один порт - ssh. Настройте все security groups на разрешение входящего ssh из этой security group. Эта вм будет реализовывать концепцию bastion host. Потом можно будет подключаться по ssh ко всем хостам через этот хост.
+
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/bastionssh.png)
+
+
 ### Резервное копирование
 Создайте snapshot дисков всех ВМ. Ограничьте время жизни snaphot в неделю. Сами snaphot настройте на ежедневное копирование.

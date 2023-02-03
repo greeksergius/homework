@@ -145,6 +145,18 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 Создайте ВМ, разверните на ней Prometheus. На каждую ВМ из web серверов установите Node Exporter и [Nginx Log Exporter](https://github.com/martin-helmich/prometheus-nginxlog-exporter). Настройте Prometheus на сбор метрик с этих exporter.
 
 Создайте ВМ, установите туда Grafana. Настройте ее на взаимодейтсвие с ранее развернутым Prometheus. Настройте дешборды с отображением метрик, минимальный набор - Utilization, Saturation, Errors для CPU, RAM, диски, сеть, http_response_count_total, http_response_size_bytes. Добавьте необходимые [tresholds](https://grafana.com/docs/grafana/latest/panels/thresholds/) на соответствующие графики.
+
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/nodeexporterfull.png)
+
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/grafana%20response.png)
+
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/node%20exporter%20one.png)
+
+Редактируем JSON файл (заменял uid datasource, т.к. после повторного разворачивания ВМ ид прометея был другой и нужно было поправлять графики), для последующего импорта с помощью плейбука ansible
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/editjson.png)
+
+
+
 ## Логи
 Cоздайте ВМ, разверните на ней Elasticsearch. Установите filebeat в ВМ к web-серверам, настройте на отправку access.log, error.log nginx в Elasticsearch.
 

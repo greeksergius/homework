@@ -124,10 +124,16 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 Создайте [HTTP router](https://cloud.yandex.com/docs/application-load-balancer/concepts/http-router). Путь укажите - /, backend group - созданную ранее.
 
+
+
 Создайте [Application load balancer](https://cloud.yandex.com/en/docs/application-load-balancer/) для распределения трафика на web-сервера, созданные ранее. Укажите HTTP router созданный ранее, задайте listener тип auto, порт 80.
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/loadbalancer.png)
 
 Протестируйте сайт
 `curl -v <публичный IP балансера>:80` 
+
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/curlwebsite.png)
+
 ### Мониторинг
 Создайте ВМ, разверните на ней Prometheus. На каждую ВМ из web серверов установите Node Exporter и [Nginx Log Exporter](https://github.com/martin-helmich/prometheus-nginxlog-exporter). Настройте Prometheus на сбор метрик с этих exporter.
 

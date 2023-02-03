@@ -69,7 +69,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 ## Инфраструктура
 Для развертки инфраструктуры используйте Terraform и Ansible. 
 
-## Ссылка на проект с terraform манифестами и ролями ansible в формате zip - [скачать](https://drive.google.com/file/d/1B83UDSrlJUaeJMFbCYhYUMfas7RXU5tH/view?usp=share_link)
+## Ссылка на проект с terraform манифестами и ролями ansible в формате zip - [скачать](https://drive.google.com/file/d/1ImnEv1RuSaf1jXGuHwtRjsgG1Pzs2I-m/view?usp=share_link)
 
 Для удобства работы и интерпритации информации, план инфраструктуры поделен на 5 манифестов terraform:
 

@@ -114,6 +114,10 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 Используйте набор статичных файлов для сайта. Можно переиспользовать сайт из домашнего задания.
 
+([Адрес веб-сайта](http://84.201.157.97/))
+
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/scrnwebsite.png)
+
 Создайте [Target Group](https://cloud.yandex.com/docs/application-load-balancer/concepts/target-group), включите в нее две созданных ВМ.
 
 Создайте [Backend Group](https://cloud.yandex.com/docs/application-load-balancer/concepts/backend-group), настройте backends на target group ранее созданную. Настройте healthcheck на корень (/) и порт 80, протокол HTTP

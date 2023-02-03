@@ -120,13 +120,18 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 Создайте [Target Group](https://cloud.yandex.com/docs/application-load-balancer/concepts/target-group), включите в нее две созданных ВМ.
 
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/targetgroup.png)
+
 Создайте [Backend Group](https://cloud.yandex.com/docs/application-load-balancer/concepts/backend-group), настройте backends на target group ранее созданную. Настройте healthcheck на корень (/) и порт 80, протокол HTTP
+
+![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/backend.png)
 
 Создайте [HTTP router](https://cloud.yandex.com/docs/application-load-balancer/concepts/http-router). Путь укажите - /, backend group - созданную ранее.
 
 ![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/myyavpc.png)
 
 Создайте [Application load balancer](https://cloud.yandex.com/en/docs/application-load-balancer/) для распределения трафика на web-сервера, созданные ранее. Укажите HTTP router созданный ранее, задайте listener тип auto, порт 80.
+
 ![Alt-текст](https://github.com/greeksergius/homework/blob/main/sys-diplom/img/loadbalancer.png)
 
 Протестируйте сайт

@@ -238,7 +238,7 @@ log_bin = mysql-bin #на втором
 ``` 
 Создаем для них сеть и мост
 ``` 
-docker network create replication 3
+docker network create replication3
 docker network connect replication3 replication-master-one
 docker network connect replication3 replication-master-two
 ``` 
